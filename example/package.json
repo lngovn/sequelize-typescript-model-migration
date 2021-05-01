@@ -1,0 +1,31 @@
+{
+  "name": "sequelize-typescript-migratool",
+  "version": "1.0.0",
+  "description": "Migration tool for sequelize-typescript",
+  "main": "index.js",
+  "repository": "https://github.com/lngovn/sequelize-typescript-migratool.git",
+  "author": "lngovn",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "sq:init": "sequelize-cli init",
+    "migrate:up": "sequelize-cli db:migrate",
+    "migrate:down": "sequelize-cli db:migrate:undo"
+  },
+  "dependencies": {
+    "@types/prettier": "^2.2.3",
+    "deep-diff": "^1.0.2",
+    "mysql2": "^2.2.5",
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.6.2",
+    "sequelize-typescript": "^2.1.0",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.41",
+    "@types/validator": "^13.1.3",
+    "sequelize-cli": "^6.2.0",
+    "ts-node": "^9.1.1"
+  }
+}

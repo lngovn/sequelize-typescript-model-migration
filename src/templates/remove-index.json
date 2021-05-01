@@ -1,0 +1,3 @@
+{
+    "tpl": "await queryInterface.removeIndex({tableName}, {indexName});"
+}

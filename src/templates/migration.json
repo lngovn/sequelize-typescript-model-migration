@@ -1,0 +1,3 @@
+{
+  "tpl": "'use strict'; const { Op } = require('sequelize'); module.exports = { up: async (queryInterface, Sequelize) => {{upCommands}},down: async (queryInterface, Sequelize) => {{downCommands}}};"
+}

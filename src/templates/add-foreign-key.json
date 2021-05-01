@@ -1,0 +1,3 @@
+{
+    "tpl": "await queryInterface.addConstraint({tableName}, {options});"
+}
