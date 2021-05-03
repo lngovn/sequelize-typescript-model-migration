@@ -1,11 +1,15 @@
-import { Model } from 'sequelize-typescript';
-import { IndexesOptions, InitOptions } from 'sequelize/types';
+import { Model } from "sequelize-typescript";
+import { IndexesOptions, InitOptions } from "sequelize/types";
 
 export interface IMigrationOptions {
   /**
-   * directory to store migration file. default value is `migrations` folder under root dir.
+   * directory to store migration files. default value is `migrations` folder under root dir.
    */
   outDir?: string;
+  /**
+   * directory to store snapshot files. default value is `snapshots` folder under root dir.
+   */
+  snapshotDir?: string;
   /**
    * migration file name, default is "noname"
    */

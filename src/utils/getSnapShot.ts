@@ -25,7 +25,7 @@ export const getLatestSnapshot = async (
   const filename = `${prefix}${
     subfix.includes("json") ? subfix : `${subfix}.json`
   }`;
-  const snapshotDir = options.outDir || "./snapshots";
+  const snapshotDir = options.snapshotDir || "./snapshots";
   const snapshot = await import(
     `${snapshotDir}/${filename}`
   ).catch((e) => ({}));

@@ -44,7 +44,8 @@ const sequelize: Sequelize = new Sequelize(database, username, password,
 });
 
 await generateMigration(sequelize, {
-	outDir: path.join(__dirname, "../migrations"),
+    outDir: path.join(__dirname, "../migrations"),
+    snapshotDir: path.join(__dirname, "../snapshots")
     migrationName: "my-migration-file",
     prettierOptions,
 });

@@ -72,7 +72,7 @@ export const createSnapshot = async (
   options: IMigrationOptions,
 ) => {
   const snapshotName = makeFilename(options, meta, '.json');
-  const snapshotDir = options.outDir || './snapshots';
+  const snapshotDir = options.snapshotDir || './snapshots';
 
   if (!fs.existsSync(snapshotDir)) {
     fs.mkdirSync(snapshotDir);
