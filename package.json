@@ -1,6 +1,6 @@
 {
   "name": "sequelize-typescript-model-migration",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Migration tool for sequelize-typescript",
   "keywords": [
     "sequelize",
@@ -10,7 +10,11 @@
     "migrate",
     "makemigration"
   ],
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "repository": "https://github.com/lngovn/sequelize-typescript-model-migration",
   "author": "lngovn",
   "license": "MIT",

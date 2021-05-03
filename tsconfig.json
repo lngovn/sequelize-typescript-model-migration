@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es5",
     "moduleResolution": "node",
     "module": "commonjs",
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitUseStrict": false,
-    "outDir": "dist/",
+    "outDir": "lib/",
     "baseUrl": "./src",
     "listFiles": false,
     "noEmitHelpers": false,
