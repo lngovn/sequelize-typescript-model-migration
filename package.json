@@ -1,6 +1,6 @@
 {
   "name": "sequelize-typescript-model-migration",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Migration tool for sequelize-typescript",
   "keywords": [
     "sequelize",
