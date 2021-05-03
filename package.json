@@ -1,13 +1,22 @@
 {
-  "name": "sequelize-typescript-migratool",
+  "name": "sequelize-typescript-model-migration",
   "version": "1.0.0",
   "description": "Migration tool for sequelize-typescript",
+  "keywords": [
+    "sequelize",
+    "typescript",
+    "migration",
+    "model",
+    "migrate",
+    "makemigration"
+  ],
   "main": "index.js",
-  "repository": "https://github.com/lngovn/sequelize-typescript-migratool.git",
+  "repository": "https://github.com/lngovn/sequelize-typescript-model-migration",
   "author": "lngovn",
   "license": "MIT",
   "scripts": {
-    "sq:init": "sequelize-cli init"
+    "sq:init": "sequelize-cli init",
+    "build": "tsc"
   },
   "dependencies": {
     "clone-deep": "^4.0.1",
