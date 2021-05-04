@@ -33,3 +33,5 @@ Run `yarn install` to install required depedencies.
 Run `yarn migrate:up` to migrate create all necessary tables, foreign keys, indexes in your database.
 
 Run `yarn migrate:down` to remove all tables, foreign keys, indexes from your database.
+
+Modified models and run `yarn start` to generate new migration files from the previous one.

@@ -31,7 +31,7 @@ npm i -D sequelize-typescript-model-migration
 
 ```typescript
 import { Sequelize } from "sequelize-typescript";
-import { SequelizeTypescriptModelMigration } from "sequelize-typescript-model-migration";
+import { generateMigration } from "sequelize-typescript-model-migration";
 import prettierOptions from '.prettierrc.json';
 
 const sequelize: Sequelize = new Sequelize(database, username, password,
