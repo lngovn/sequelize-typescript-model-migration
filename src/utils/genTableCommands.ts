@@ -11,7 +11,9 @@ export const genCreateTableCommand = (tableName: string, columns: {}) => {
       str = `${str}${kk}:${
         typeof vv === 'object'
           ? JSON.stringify(vv)
-          : kk !== 'onDelete' && kk !== 'onUpdate'
+          : kk !== 'onDelete' &&
+            kk !== 'onUpdate' &&
+            !(kk === 'unique' && typeof vv === 'string')
           ? vv
           : `'${vv}'`
       },`;

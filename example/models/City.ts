@@ -9,12 +9,14 @@ class City extends Model {
   @Column({ autoIncrement: true })
   id!: number;
 
-  @Column
-  @Index('city_name_unique_key')
+  @Column({ unique: 'city_city_name_country_name_unique' })
   cityName!: string;
 
-  @Column
+  @Column({ unique: 'city_city_name_country_name_unique' })
   countryName!: string;
+
+  @Column({ unique: true })
+  code!: string;
 }
 
 export default City;

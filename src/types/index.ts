@@ -20,12 +20,18 @@ export interface IMigrationOptions {
   prettierOptions?: {};
 }
 
+export interface IUniqueConstraints {
+  fields: string[];
+  name: string;
+}
+
 export interface IExtractedModel {
   name: string;
   options?: InitOptions<Model<any, any>>;
   columns: {};
   foreignKeys: IForeignKeys;
   indexes: { [idx: string]: IndexesOptions };
+  uniqueConstraints: IUniqueConstraints;
 }
 
 export interface IExtractedModels {

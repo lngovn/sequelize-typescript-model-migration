@@ -4,8 +4,15 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable("city", {
       id: { autoIncrement: true, type: Sequelize.INTEGER, primaryKey: true },
-      city_name: { type: Sequelize.STRING },
-      country_name: { type: Sequelize.STRING },
+      city_name: {
+        unique: "city_city_name_country_name_unique",
+        type: Sequelize.STRING,
+      },
+      country_name: {
+        unique: "city_city_name_country_name_unique",
+        type: Sequelize.STRING,
+      },
+      code: { unique: true, type: Sequelize.STRING },
       created_at: { type: Sequelize.DATE, allowNull: false },
       updated_at: { type: Sequelize.DATE, allowNull: false },
     });
@@ -48,10 +55,6 @@ module.exports = {
       type: "foreign key",
       name: "fk_users_company_id_companies",
     });
-    await queryInterface.addIndex("city", {
-      name: "city_name_unique_key",
-      fields: ["city_name"],
-    });
     await queryInterface.addIndex("companies", {
       unique: true,
       fields: ["name", "is_deleted"],
@@ -65,13 +68,21 @@ module.exports = {
       name: "gender_idx_key",
       fields: ["gender"],
     });
+    await queryInterface.addConstraint("city", {
+      type: "unique",
+      name: "city_city_name_country_name_unique",
+      fields: ["city_name", "country_name"],
+    });
   },
   down: async (queryInterface, Sequelize) => {
+    await queryInterface.removeConstraint(
+      "city",
+      "city_city_name_country_name_unique"
+    );
     await queryInterface.removeConstraint(
       "users",
       "fk_users_company_id_companies"
     );
-    await queryInterface.removeIndex("city", "city_name_unique_key");
     await queryInterface.removeIndex("companies", "companies_name_is_deleted");
     await queryInterface.removeIndex("users", "gender_idx_key");
     await queryInterface.dropTable("city");

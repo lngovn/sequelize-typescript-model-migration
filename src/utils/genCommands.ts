@@ -8,6 +8,10 @@ import {
   genRemoveIndexesCommands,
 } from './genIndexesCommands';
 import { genCreateTableCommand, genDropTableCommand } from './genTableCommands';
+import {
+  genAddUniqueContraintsCommands,
+  genRemoveUniqueConstraintsCommands,
+} from './genUniqueConstraintsCommands';
 
 export const generateMigrationCommands = (
   template: string,
@@ -28,11 +32,13 @@ export const genUpCommands = (model: IExtractedModel) => {
       model.options?.underscored,
       model.indexes,
     ),
+    genAddUniqueContraintsCommands(model.name, model.uniqueConstraints),
   ];
 };
 
 export const genDownCommands = (model: IExtractedModel) => {
   return [
+    genRemoveUniqueConstraintsCommands(model.name, model.uniqueConstraints),
     genRemoveForeignKeysCommands(model.name, model.foreignKeys),
     genRemoveIndexesCommands(model.name, model.indexes),
     [genDropTableCommand(model.name)],
