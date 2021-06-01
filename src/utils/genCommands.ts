@@ -1,23 +1,26 @@
-import { IExtractedModel } from "../types";
+import { IExtractedModel } from '../types';
 import {
   genAddForeignKeysCommands,
   genRemoveForeignKeysCommands,
-} from "./genForeignKeysCommands";
+} from './genForeignKeysCommands';
 import {
   genAddIndexesCommands,
   genRemoveIndexesCommands,
-} from "./genIndexesCommands";
-import { genCreateTableCommand, genDropTableCommand } from "./genTableCommands";
-import { genAddUniqueContraintsCommands, genRemoveUniqueConstraintsCommands } from "./genUniqueConstraintsCommands";
+} from './genIndexesCommands';
+import { genCreateTableCommand, genDropTableCommand } from './genTableCommands';
+import {
+  genAddUniqueContraintsCommands,
+  genRemoveUniqueConstraintsCommands,
+} from './genUniqueConstraintsCommands';
 
 export const generateMigrationCommands = (
   template: string,
   upCommands: string[],
-  downCommands: string[]
+  downCommands: string[],
 ) => {
   return template
-    .replace(`{upCommands}`, `${upCommands.join(" ")}`)
-    .replace(`{downCommands}`, `${downCommands.join(" ")}`);
+    .replace(`{upCommands}`, `${upCommands.join(' ')}`)
+    .replace(`{downCommands}`, `${downCommands.join(' ')}`);
 };
 
 export const genUpCommands = (model: IExtractedModel) => {
@@ -27,7 +30,7 @@ export const genUpCommands = (model: IExtractedModel) => {
     genAddIndexesCommands(
       model.name,
       model.options?.underscored,
-      model.indexes
+      model.indexes,
     ),
     genAddUniqueContraintsCommands(model.name, model.uniqueConstraints),
   ];
