@@ -61,6 +61,7 @@ export const sanitizeModelsFields = (models: IExtractedModels) => {
   for (const model of Object.values(copies)) {
     sanitizeFields(model.indexes);
     sanitizeFields(model.foreignKeys);
+    sanitizeFields(model.uniqueConstraints);
     revertIndexesWhere(model.indexes, models[model.name!].indexes);
   }
   return copies;

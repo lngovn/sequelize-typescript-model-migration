@@ -7,6 +7,8 @@ import addForeignKeys from '../templates/add-foreign-key.json';
 import removeForeignKeys from '../templates/remove-foreign-key.json';
 import addColumn from '../templates/add-column.json';
 import removeColumn from '../templates/remove-column.json';
+import addUniqueConstraints from '../templates/add-unique-constraints.json';
+import removeUniqueConstraints from '../templates/remove-unique-constraints.json';
 
 export const loadMigrationTemplate = () => migration.tpl;
 
@@ -26,6 +28,10 @@ export const loadAddColumnTemplate = () => addColumn.tpl;
 
 export const loadRemoveColumnTemplate = () => removeColumn.tpl;
 
+export const loadAddUniqueConstraints = () => addUniqueConstraints.tpl;
+
+export const loadRemoveUniqueConstraints = () => removeUniqueConstraints.tpl;
+
 export const loadAllTemplates = (): string[] => {
   return [
     loadMigrationTemplate(),
@@ -37,5 +43,7 @@ export const loadAllTemplates = (): string[] => {
     loadRemoveForeignKeysTemplate(),
     loadAddColumnTemplate(),
     loadRemoveColumnTemplate(),
+    loadAddUniqueConstraints(),
+    loadRemoveUniqueConstraints(),
   ];
 };

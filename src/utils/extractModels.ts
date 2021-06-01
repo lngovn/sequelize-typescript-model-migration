@@ -3,6 +3,7 @@ import { IExtractedModels } from '../types';
 import { getColumnsAttribute } from './getColumnsAttribute';
 import { getForeignKeys } from './getForeignKey';
 import { getIndexes } from './getIndexes';
+import { getUniqueConstraints } from './getUniqueConstraints';
 
 export const sanitizeModels = (models: IExtractedModels) => {
   const copieds: IExtractedModels = {};
@@ -28,6 +29,7 @@ export const extractModels = (models: { [key: string]: ModelCtor<Model> }) => {
       columns: {},
       foreignKeys: getForeignKeys(model),
       indexes: getIndexes(model.options?.indexes),
+      uniqueConstraints: getUniqueConstraints(model)
     };
     for (const attr of Object.values(model.rawAttributes)) {
       // Skip virtual type
