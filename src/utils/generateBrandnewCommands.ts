@@ -1,13 +1,13 @@
-import { IExtractedModels } from "../types";
+import { IExtractedModels } from '../types';
 import {
   genDownCommands,
   generateMigrationCommands,
   genUpCommands,
-} from "./genCommands";
+} from './genCommands';
 
 export const generateBrandnewCommands = (
   models: IExtractedModels,
-  [migrationTpl]: string[]
+  [migrationTpl]: string[],
 ) => {
   const createTableCommands: string[] = [];
   const createIndexesCommands: string[] = [];
@@ -56,6 +56,6 @@ export const generateBrandnewCommands = (
       ...removeForeignKeyCommands,
       ...removeIndexesCommands,
       ...dropTableCommands,
-    ]
+    ],
   );
 };
