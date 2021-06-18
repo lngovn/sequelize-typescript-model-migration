@@ -65,25 +65,34 @@ export const generateChangesCommands = (
           });
           upCommands.push({
             order: 2,
-            cmds: genAddForeignKeysCommands(model.name, model.foreignKeys),
+            cmds: genAddForeignKeysCommands(
+              model.name,
+              revertSanitizeFields(model.foreignKeys),
+            ),
           });
           upCommands.push({
             order: 3,
             cmds: genAddIndexesCommands(
               model.name,
               model.options?.underscored,
-              model.indexes,
+              revertSanitizeFields(model.indexes),
             ),
           });
 
           downCommands.push({
             order: 0,
-            cmds: genRemoveForeignKeysCommands(model.name, model.foreignKeys),
+            cmds: genRemoveForeignKeysCommands(
+              model.name,
+              revertSanitizeFields(model.foreignKeys),
+            ),
           });
 
           downCommands.push({
             order: 1,
-            cmds: genRemoveIndexesCommands(model.name, model.indexes),
+            cmds: genRemoveIndexesCommands(
+              model.name,
+              revertSanitizeFields(model.indexes),
+            ),
           });
 
           downCommands.push({
