@@ -8,10 +8,12 @@ export const getSequelizeMeta = async (
   sequelize: Sequelize,
   filename: string = "noname.js"
 ) => {
+  const dialect = sequelize.getDialect()
+  const like = dialect === 'postgres' ? Op.iLike : Op.like;
   sequelize.addModels([SequelizeMeta]);
   return SequelizeMeta.findAll({
     limit: 1,
-    where: { name: { [Op.iLike]: `%${filename}%` } },
+    where: { name: { [like]: `%${filename}%` } },
     order: [["name", "DESC"]],
   }).then((items: SequelizeMeta[]) => items?.[0]?.get()?.name);
 };
